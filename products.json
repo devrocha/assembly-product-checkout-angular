@@ -1,0 +1,802 @@
+[
+  {
+    "id": 1,
+    "name": "Bife da Vazia",
+    "price": 18.99,
+    "description": "Um corte nobre de carne de vaca, ideal para grelhar. Suculento e cheio de sabor.",
+    "category": "proteína",
+    "photo": "https://placehold.co/600x400/E8D5C4/313131?text=Bife+da+Vazia"
+  },
+  {
+    "id": 2,
+    "name": "Peito de Frango do Campo",
+    "price": 8.50,
+    "description": "Peito de frango criado ao ar livre, sem hormonas. Perfeito para uma refeição saudável.",
+    "category": "proteína",
+    "photo": "https://placehold.co/600x400/E8D5C4/313131?text=Peito+de+Frango"
+  },
+  {
+    "id": 3,
+    "name": "Posta de Salmão Fresco",
+    "price": 25.49,
+    "description": "Salmão fresco da Noruega, rico em Ómega 3. Ideal para assar no forno ou grelhar.",
+    "category": "proteína",
+    "photo": "https://placehold.co/600x400/E8D5C4/313131?text=Posta+de+Salmão"
+  },
+  {
+    "id": 4,
+    "name": "Ovos de Galinhas Felizes (Dúzia)",
+    "price": 3.20,
+    "description": "Doze ovos de galinhas criadas em liberdade, com uma gema rica e saborosa.",
+    "category": "proteína",
+    "photo": "https://placehold.co/600x400/E8D5C4/313131?text=Ovos"
+  },
+  {
+    "id": 5,
+    "name": "Lentilhas Vermelhas Biológicas",
+    "price": 4.10,
+    "description": "Lentilhas ricas em proteína vegetal e fibra. De produção biológica certificada.",
+    "category": "proteína",
+    "photo": "https://placehold.co/600x400/E8D5C4/313131?text=Lentilhas"
+  },
+  {
+    "id": 6,
+    "name": "Tofu Firme Biológico",
+    "price": 3.99,
+    "description": "Tofu biológico de textura firme, excelente para saltear ou grelhar. Fonte de proteína vegetal.",
+    "category": "proteína",
+    "photo": "https://placehold.co/600x400/E8D5C4/313131?text=Tofu"
+  },
+  {
+    "id": 7,
+    "name": "Costeletas de Porco do Lombo",
+    "price": 9.75,
+    "description": "Costeletas de porco suculentas, perfeitas para fritar ou grelhar.",
+    "category": "proteína",
+    "photo": "https://placehold.co/600x400/E8D5C4/313131?text=Costeletas"
+  },
+  {
+    "id": 8,
+    "name": "Bacalhau Graúdo Desfiado",
+    "price": 15.99,
+    "description": "O melhor bacalhau da Islândia, já demolhado e desfiado, pronto a cozinhar.",
+    "category": "proteína",
+    "photo": "https://placehold.co/600x400/E8D5C4/313131?text=Bacalhau"
+  },
+  {
+    "id": 9,
+    "name": "Grão-de-Bico Cozido em Frasco",
+    "price": 2.50,
+    "description": "Grão-de-bico cozido, pronto a usar em saladas, sopas ou para fazer húmus.",
+    "category": "proteína",
+    "photo": "https://placehold.co/600x400/E8D5C4/313131?text=Grão-de-Bico"
+  },
+  {
+    "id": 10,
+    "name": "Queijo Fresco de Vaca",
+    "price": 2.99,
+    "description": "Queijo fresco de leite de vaca pasteurizado, com baixo teor de gordura.",
+    "category": "proteína",
+    "photo": "https://placehold.co/600x400/E8D5C4/313131?text=Queijo+Fresco"
+  },
+  {
+    "id": 11,
+    "name": "Iogurte Grego Natural",
+    "price": 3.50,
+    "description": "Iogurte grego cremoso e natural, rico em proteínas. Sem adição de açúcar.",
+    "category": "proteína",
+    "photo": "https://placehold.co/600x400/E8D5C4/313131?text=Iogurte+Grego"
+  },
+  {
+    "id": 12,
+    "name": "Carne Picada de Novilho",
+    "price": 7.80,
+    "description": "Carne de novilho picada no momento, com baixo teor de gordura. Ideal para bolonhesa ou hambúrgueres.",
+    "category": "proteína",
+    "photo": "https://placehold.co/600x400/E8D5C4/313131?text=Carne+Picada"
+  },
+  {
+    "id": 13,
+    "name": "Filetes de Pescada do Cabo",
+    "price": 12.99,
+    "description": "Filetes de pescada congelados, sem pele nem espinhas. Prontos a cozinhar.",
+    "category": "proteína",
+    "photo": "https://placehold.co/600x400/E8D5C4/313131?text=Filetes+Pescada"
+  },
+  {
+    "id": 14,
+    "name": "Seitan Biológico",
+    "price": 4.50,
+    "description": "Alternativa vegetal à carne, feita a partir de glúten de trigo. Rico em proteína.",
+    "category": "proteína",
+    "photo": "https://placehold.co/600x400/E8D5C4/313131?text=Seitan"
+  },
+  {
+    "id": 15,
+    "name": "Atum em Azeite",
+    "price": 2.10,
+    "description": "Lombos de atum conservados em azeite de qualidade superior.",
+    "category": "proteína",
+    "photo": "https://placehold.co/600x400/E8D5C4/313131?text=Atum"
+  },
+  {
+    "id": 16,
+    "name": "Feijão Preto Cozido",
+    "price": 2.30,
+    "description": "Feijão preto cozido e pronto a consumir, ideal para acompanhar pratos ou em saladas.",
+    "category": "proteína",
+    "photo": "https://placehold.co/600x400/E8D5C4/313131?text=Feijão+Preto"
+  },
+  {
+    "id": 17,
+    "name": "Quinoa Real Biológica",
+    "price": 5.25,
+    "description": "Quinoa biológica, uma proteína completa com todos os aminoácidos essenciais.",
+    "category": "proteína",
+    "photo": "https://placehold.co/600x400/E8D5C4/313131?text=Quinoa"
+  },
+  {
+    "id": 18,
+    "name": "Bifes de Peru Finos",
+    "price": 9.20,
+    "description": "Bifes de peito de peru cortados finamente, rápidos de cozinhar e muito versáteis.",
+    "category": "proteína",
+    "photo": "https://placehold.co/600x400/E8D5C4/313131?text=Bifes+de+Peru"
+  },
+  {
+    "id": 19,
+    "name": "Amêijoas frescas",
+    "price": 11.50,
+    "description": "Amêijoas frescas da costa portuguesa, perfeitas para pratos de marisco.",
+    "category": "proteína",
+    "photo": "https://placehold.co/600x400/E8D5C4/313131?text=Amêijoas"
+  },
+  {
+    "id": 20,
+    "name": "Requeijão de Ovelha",
+    "price": 4.80,
+    "description": "Requeijão tradicional de leite de ovelha, com uma textura cremosa e sabor suave.",
+    "category": "proteína",
+    "photo": "https://placehold.co/600x400/E8D5C4/313131?text=Requeijão"
+  },
+  {
+    "id": 21,
+    "name": "Arroz Agulha",
+    "price": 1.99,
+    "description": "Arroz de bago longo, ideal para acompanhar qualquer prato. Não empapa.",
+    "category": "carboidrato",
+    "photo": "https://placehold.co/600x400/F0E5D8/313131?text=Arroz+Agulha"
+  },
+  {
+    "id": 22,
+    "name": "Batata Branca para Cozer",
+    "price": 1.50,
+    "description": "Saco de batatas brancas de calibre médio, perfeitas para cozer ou assar.",
+    "category": "carboidrato",
+    "photo": "https://placehold.co/600x400/F0E5D8/313131?text=Batata+Branca"
+  },
+  {
+    "id": 23,
+    "name": "Pão de Forma Integral",
+    "price": 2.50,
+    "description": "Pão de forma com farinha 100% integral, rico em fibra.",
+    "category": "carboidrato",
+    "photo": "https://placehold.co/600x400/F0E5D8/313131?text=Pão+Integral"
+  },
+  {
+    "id": 24,
+    "name": "Massa Esparguete",
+    "price": 1.20,
+    "description": "Massa de sêmola de trigo duro, o clássico esparguete para as suas massas.",
+    "category": "carboidrato",
+    "photo": "https://placehold.co/600x400/F0E5D8/313131?text=Esparguete"
+  },
+  {
+    "id": 25,
+    "name": "Batata-doce Laranja",
+    "price": 2.80,
+    "description": "Batata-doce de polpa laranja, ideal para assar no forno e com um sabor adocicado.",
+    "category": "carboidrato",
+    "photo": "https://placehold.co/600x400/F0E5D8/313131?text=Batata-doce"
+  },
+  {
+    "id": 26,
+    "name": "Farinha de Trigo T65",
+    "price": 1.10,
+    "description": "Farinha de trigo sem fermento, tipo 65, para todo o tipo de bolos e salgados.",
+    "category": "carboidrato",
+    "photo": "https://placehold.co/600x400/F0E5D8/313131?text=Farinha"
+  },
+  {
+    "id": 27,
+    "name": "Cuscuz Médio",
+    "price": 2.90,
+    "description": "Sêmola de trigo para preparar cuscuz. Rápido e versátil.",
+    "category": "carboidrato",
+    "photo": "https://placehold.co/600x400/F0E5D8/313131?text=Cuscuz"
+  },
+  {
+    "id": 28,
+    "name": "Pão de Mafra",
+    "price": 3.20,
+    "description": "Pão artesanal de fabrico tradicional, com côdea estaladiça e miolo fofo.",
+    "category": "carboidrato",
+    "photo": "https://placehold.co/600x400/F0E5D8/313131?text=Pão+de+Mafra"
+  },
+  {
+    "id": 29,
+    "name": "Arroz Carolino das Lezírias",
+    "price": 2.40,
+    "description": "Arroz carolino português, perfeito para arroz de marisco e outros pratos malandros.",
+    "category": "carboidrato",
+    "photo": "https://placehold.co/600x400/F0E5D8/313131?text=Arroz+Carolino"
+  },
+  {
+    "id": 30,
+    "name": "Massa Penne Integral",
+    "price": 1.80,
+    "description": "Massa penne feita com sêmola de trigo duro integral. Rica em fibras.",
+    "category": "carboidrato",
+    "photo": "https://placehold.co/600x400/F0E5D8/313131?text=Massa+Penne"
+  },
+  {
+    "id": 31,
+    "name": "Polenta Instantânea",
+    "price": 2.15,
+    "description": "Farinha de milho pré-cozida para uma polenta cremosa em poucos minutos.",
+    "category": "carboidrato",
+    "photo": "https://placehold.co/600x400/F0E5D8/313131?text=Polenta"
+  },
+  {
+    "id": 32,
+    "name": "Tostas de Trigo Integral",
+    "price": 2.99,
+    "description": "Tostas finas e estaladiças de trigo integral, ideais para o pequeno-almoço ou lanche.",
+    "category": "carboidrato",
+    "photo": "https://placehold.co/600x400/F0E5D8/313131?text=Tostas"
+  },
+  {
+    "id": 33,
+    "name": "Inhame",
+    "price": 3.50,
+    "description": "Tubérculo versátil com um sabor único, pode ser cozido, frito ou em puré.",
+    "category": "carboidrato",
+    "photo": "https://placehold.co/600x400/F0E5D8/313131?text=Inhame"
+  },
+  {
+    "id": 34,
+    "name": "Broa de Milho",
+    "price": 2.75,
+    "description": "Pão denso e saboroso feito com farinha de milho, típico da gastronomia portuguesa.",
+    "category": "carboidrato",
+    "photo": "https://placehold.co/600x400/F0E5D8/313131?text=Broa+de+Milho"
+  },
+  {
+    "id": 35,
+    "name": "Mandioca Fresca",
+    "price": 3.10,
+    "description": "Raiz rica em amido, também conhecida como aipim ou macaxeira. Perfeita para cozer ou fritar.",
+    "category": "carboidrato",
+    "photo": "https://placehold.co/600x400/F0E5D8/313131?text=Mandioca"
+  },
+  {
+    "id": 36,
+    "name": "Massa Cotovelos",
+    "price": 1.15,
+    "description": "Massa pequena e curva, excelente para sopas e saladas de massa.",
+    "category": "carboidrato",
+    "photo": "https://placehold.co/600x400/F0E5D8/313131?text=Massa+Cotovelos"
+  },
+  {
+    "id": 37,
+    "name": "Batata Vermelha para Fritar",
+    "price": 1.70,
+    "description": "Batata de polpa firme e pele avermelhada, ideal para obter batatas fritas estaladiças.",
+    "category": "carboidrato",
+    "photo": "https://placehold.co/600x400/F0E5D8/313131?text=Batata+Vermelha"
+  },
+  {
+    "id": 38,
+    "name": "Wraps de Trigo",
+    "price": 3.40,
+    "description": "Tortilhas de trigo macias, perfeitas para enrolar com os seus ingredientes favoritos.",
+    "category": "carboidrato",
+    "photo": "https://placehold.co/600x400/F0E5D8/313131?text=Wraps"
+  },
+  {
+    "id": 39,
+    "name": "Arroz Basmati",
+    "price": 3.90,
+    "description": "Arroz aromático de grão longo e fino, originário da Índia. Fica sempre solto.",
+    "category": "carboidrato",
+    "photo": "https://placehold.co/600x400/F0E5D8/313131?text=Arroz+Basmati"
+  },
+  {
+    "id": 40,
+    "name": "Pão de Centeio",
+    "price": 2.95,
+    "description": "Pão escuro de sabor intenso, feito com uma alta percentagem de farinha de centeio.",
+    "category": "carboidrato",
+    "photo": "https://placehold.co/600x400/F0E5D8/313131?text=Pão+de+Centeio"
+  },
+  {
+    "id": 41,
+    "name": "Alface Lisa",
+    "price": 1.20,
+    "description": "Alface de folhas tenras e sabor suave. A base perfeita para qualquer salada.",
+    "category": "hortã",
+    "photo": "https://placehold.co/600x400/C1D8C3/313131?text=Alface+Lisa"
+  },
+  {
+    "id": 42,
+    "name": "Tomate Cacho",
+    "price": 2.30,
+    "description": "Tomates maduros e suculentos, vendidos em cacho para máxima frescura.",
+    "category": "hortã",
+    "photo": "https://placehold.co/600x400/C1D8C3/313131?text=Tomate+Cacho"
+  },
+  {
+    "id": 43,
+    "name": "Cebola",
+    "price": 1.40,
+    "description": "Cebolas de tamanho médio, indispensáveis para refogados e temperos.",
+    "category": "hortã",
+    "photo": "https://placehold.co/600x400/C1D8C3/313131?text=Cebola"
+  },
+  {
+    "id": 44,
+    "name": "Cenoura",
+    "price": 1.60,
+    "description": "Cenouras frescas e estaladiças, ricas em betacaroteno.",
+    "category": "hortã",
+    "photo": "https://placehold.co/600x400/C1D8C3/313131?text=Cenoura"
+  },
+  {
+    "id": 45,
+    "name": "Brócolos",
+    "price": 2.99,
+    "description": "Ramos de brócolos verdes e frescos, excelentes cozidos a vapor ou salteados.",
+    "category": "hortã",
+    "photo": "https://placehold.co/600x400/C1D8C3/313131?text=Brócolos"
+  },
+  {
+    "id": 46,
+    "name": "Espinafres Frescos",
+    "price": 2.50,
+    "description": "Folhas de espinafre tenras, perfeitas para saladas, batidos ou cozinhados.",
+    "category": "hortã",
+    "photo": "https://placehold.co/600x400/C1D8C3/313131?text=Espinafres"
+  },
+  {
+    "id": 47,
+    "name": "Courgette",
+    "price": 1.90,
+    "description": "Courgette fresca e versátil, ideal para sopas, grelhados ou espirais de vegetais.",
+    "category": "hortã",
+    "photo": "https://placehold.co/600x400/C1D8C3/313131?text=Courgette"
+  },
+  {
+    "id": 48,
+    "name": "Pimento Vermelho",
+    "price": 2.80,
+    "description": "Pimento vermelho carnudo e doce, excelente para assar ou usar em saladas.",
+    "category": "hortã",
+    "photo": "https://placehold.co/600x400/C1D8C3/313131?text=Pimento"
+  },
+  {
+    "id": 49,
+    "name": "Alho Francês",
+    "price": 2.10,
+    "description": "Alho francês com um sabor mais suave que a cebola, perfeito para sopas e quiches.",
+    "category": "hortã",
+    "photo": "https://placehold.co/600x400/C1D8C3/313131?text=Alho+Francês"
+  },
+  {
+    "id": 50,
+    "name": "Couve Coração",
+    "price": 1.50,
+    "description": "Couve de folhas macias e sabor delicado, ideal para caldo verde ou cozidos.",
+    "category": "hortã",
+    "photo": "https://placehold.co/600x400/C1D8C3/313131?text=Couve+Coração"
+  },
+  {
+    "id": 51,
+    "name": "Beringela",
+    "price": 2.20,
+    "description": "Beringela de casca brilhante e polpa macia. Ótima para assar ou grelhar.",
+    "category": "hortã",
+    "photo": "https://placehold.co/600x400/C1D8C3/313131?text=Beringela"
+  },
+  {
+    "id": 52,
+    "name": "Pepino",
+    "price": 1.30,
+    "description": "Pepino fresco e hidratante, essencial para saladas de verão.",
+    "category": "hortã",
+    "photo": "https://placehold.co/600x400/C1D8C3/313131?text=Pepino"
+  },
+  {
+    "id": 53,
+    "name": "Abóbora Manteiga",
+    "price": 1.99,
+    "description": "Abóbora de polpa doce e cremosa, perfeita para sopas ou assada no forno.",
+    "category": "hortã",
+    "photo": "https://placehold.co/600x400/C1D8C3/313131?text=Abóbora"
+  },
+  {
+    "id": 54,
+    "name": "Rúcula Selvagem",
+    "price": 2.70,
+    "description": "Folhas de rúcula com um sabor picante característico. Dá um toque especial a saladas e pizzas.",
+    "category": "hortã",
+    "photo": "https://placehold.co/600x400/C1D8C3/313131?text=Rúcula"
+  },
+  {
+    "id": 55,
+    "name": "Feijão Verde",
+    "price": 3.50,
+    "description": "Vagens de feijão verde frescas e tenras, para cozer e temperar com azeite e alho.",
+    "category": "hortã",
+    "photo": "https://placehold.co/600x400/C1D8C3/313131?text=Feijão+Verde"
+  },
+  {
+    "id": 56,
+    "name": "Cogumelos Marron",
+    "price": 3.20,
+    "description": "Cogumelos com um sabor mais intenso e textura mais firme que os brancos.",
+    "category": "hortã",
+    "photo": "https://placehold.co/600x400/C1D8C3/313131?text=Cogumelos"
+  },
+  {
+    "id": 57,
+    "name": "Nabo",
+    "price": 1.10,
+    "description": "Raiz de sabor suave, essencial para cozer em sopas e caldos.",
+    "category": "hortã",
+    "photo": "https://placehold.co/600x400/C1D8C3/313131?text=Nabo"
+  },
+  {
+    "id": 58,
+    "name": "Agrião",
+    "price": 1.95,
+    "description": "Folhas de sabor picante e fresco, ricas em vitaminas. Ótimo para sopas e saladas.",
+    "category": "hortã",
+    "photo": "https://placehold.co/600x400/C1D8C3/313131?text=Agrião"
+  },
+  {
+    "id": 59,
+    "name": "Tomate Cherry",
+    "price": 2.90,
+    "description": "Tomates pequenos e doces, ideais para saladas, espetadas ou como snack.",
+    "category": "hortã",
+    "photo": "https://placehold.co/600x400/C1D8C3/313131?text=Tomate+Cherry"
+  },
+  {
+    "id": 60,
+    "name": "Salsa Fresca (Molho)",
+    "price": 1.00,
+    "description": "Molho de salsa fresca para temperar e finalizar os seus pratos.",
+    "category": "hortã",
+    "photo": "https://placehold.co/600x400/C1D8C3/313131?text=Salsa"
+  },
+  {
+    "id": 61,
+    "name": "Banana da Madeira",
+    "price": 2.20,
+    "description": "Bananas de origem portuguesa, mais pequenas e doces.",
+    "category": "fruta",
+    "photo": "https://placehold.co/600x400/F5C898/313131?text=Banana"
+  },
+  {
+    "id": 62,
+    "name": "Maçã Royal Gala",
+    "price": 1.99,
+    "description": "Maçãs de casca vermelha, doces e estaladiças. Perfeitas para comer ao natural.",
+    "category": "fruta",
+    "photo": "https://placehold.co/600x400/F5C898/313131?text=Maçã"
+  },
+  {
+    "id": 63,
+    "name": "Laranja do Algarve",
+    "price": 1.80,
+    "description": "Laranjas sumarentas e doces, ricas em Vitamina C. Ideais para sumo.",
+    "category": "fruta",
+    "photo": "https://placehold.co/600x400/F5C898/313131?text=Laranja"
+  },
+  {
+    "id": 64,
+    "name": "Morangos",
+    "price": 4.50,
+    "description": "Cuvete de morangos frescos, doces e perfumados.",
+    "category": "fruta",
+    "photo": "https://placehold.co/600x400/F5C898/313131?text=Morangos"
+  },
+  {
+    "id": 65,
+    "name": "Pera Rocha",
+    "price": 2.10,
+    "description": "Pera de origem portuguesa, com Denominação de Origem Protegida. Textura granulosa e doce.",
+    "category": "fruta",
+    "photo": "https://placehold.co/600x400/F5C898/313131?text=Pera+Rocha"
+  },
+  {
+    "id": 66,
+    "name": "Uvas Brancas sem Grainha",
+    "price": 3.99,
+    "description": "Uvas brancas doces e estaladiças, sem grainha para maior comodidade.",
+    "category": "fruta",
+    "photo": "https://placehold.co/600x400/F5C898/313131?text=Uvas"
+  },
+  {
+    "id": 67,
+    "name": "Kiwi Nacional",
+    "price": 3.20,
+    "description": "Kiwis de produção nacional, com a acidez e doçura equilibradas.",
+    "category": "fruta",
+    "photo": "https://placehold.co/600x400/F5C898/313131?text=Kiwi"
+  },
+  {
+    "id": 68,
+    "name": "Manga Palmer",
+    "price": 3.80,
+    "description": "Manga de avião, colhida no ponto ótimo de maturação. Polpa doce e sem fibras.",
+    "category": "fruta",
+    "photo": "https://placehold.co/600x400/F5C898/313131?text=Manga"
+  },
+  {
+    "id": 69,
+    "name": "Abacaxi dos Açores",
+    "price": 5.50,
+    "description": "Abacaxi produzido em estufas nos Açores, com um sabor e aroma únicos.",
+    "category": "fruta",
+    "photo": "https://placehold.co/600x400/F5C898/313131?text=Abacaxi"
+  },
+  {
+    "id": 70,
+    "name": "Limão",
+    "price": 1.90,
+    "description": "Limões de casca fina e muito sumo, perfeitos para temperar ou fazer bebidas.",
+    "category": "fruta",
+    "photo": "https://placehold.co/600x400/F5C898/313131?text=Limão"
+  },
+  {
+    "id": 71,
+    "name": "Mirtilos",
+    "price": 4.99,
+    "description": "Cuvete de mirtilos frescos, ricos em antioxidantes.",
+    "category": "fruta",
+    "photo": "https://placehold.co/600x400/F5C898/313131?text=Mirtilos"
+  },
+  {
+    "id": 72,
+    "name": "Pêssego Paraguaio",
+    "price": 3.70,
+    "description": "Pêssego achatado, de polpa branca, muito doce e sumarento.",
+    "category": "fruta",
+    "photo": "https://placehold.co/600x400/F5C898/313131?text=Pêssego"
+  },
+  {
+    "id": 73,
+    "name": "Melão de Santa Maria",
+    "price": 3.40,
+    "description": "Melão de casca verde e polpa branca, muito refrescante e doce.",
+    "category": "fruta",
+    "photo": "https://placehold.co/600x400/F5C898/313131?text=Melão"
+  },
+  {
+    "id": 74,
+    "name": "Ameixa Rainha Cláudia",
+    "price": 3.10,
+    "description": "Ameixas verdes de polpa muito doce e sumarenta.",
+    "category": "fruta",
+    "photo": "https://placehold.co/600x400/F5C898/313131?text=Ameixa"
+  },
+  {
+    "id": 75,
+    "name": "Abacate",
+    "price": 4.20,
+    "description": "Abacate de polpa cremosa, ideal para tostas, saladas e guacamole.",
+    "category": "fruta",
+    "photo": "https://placehold.co/600x400/F5C898/313131?text=Abacate"
+  },
+  {
+    "id": 76,
+    "name": "Framboesas",
+    "price": 5.20,
+    "description": "Cuvete de framboesas frescas, delicadas e com um sabor agridoce.",
+    "category": "fruta",
+    "photo": "https://placehold.co/600x400/F5C898/313131?text=Framboesas"
+  },
+  {
+    "id": 77,
+    "name": "Maracujá",
+    "price": 6.50,
+    "description": "Maracujá de polpa sumarenta e sabor tropical intenso.",
+    "category": "fruta",
+    "photo": "https://placehold.co/600x400/F5C898/313131?text=Maracujá"
+  },
+  {
+    "id": 78,
+    "name": "Tangerinas",
+    "price": 2.30,
+    "description": "Tangerinas fáceis de descascar, doces e com muito sumo.",
+    "category": "fruta",
+    "photo": "https://placehold.co/600x400/F5C898/313131?text=Tangerinas"
+  },
+  {
+    "id": 79,
+    "name": "Melancia",
+    "price": 1.50,
+    "description": "Melancia fresca e hidratante, perfeita para os dias quentes. Preço por kg.",
+    "category": "fruta",
+    "photo": "https://placehold.co/600x400/F5C898/313131?text=Melancia"
+  },
+  {
+    "id": 80,
+    "name": "Romã",
+    "price": 4.80,
+    "description": "Romã rica em antioxidantes, com bagos vermelhos e sumarentos.",
+    "category": "fruta",
+    "photo": "https://placehold.co/600x400/F5C898/313131?text=Romã"
+  },
+  {
+    "id": 81,
+    "name": "Aveia em Flocos Finos",
+    "price": 2.50,
+    "description": "Flocos de aveia finos, ideais para papas, batidos ou para juntar ao iogurte.",
+    "category": "cereais",
+    "photo": "https://placehold.co/600x400/DAB88B/313131?text=Aveia"
+  },
+  {
+    "id": 82,
+    "name": "Corn Flakes",
+    "price": 3.20,
+    "description": "Flocos de milho estaladiços para um pequeno-almoço clássico.",
+    "category": "cereais",
+    "photo": "https://placehold.co/600x400/DAB88B/313131?text=Corn+Flakes"
+  },
+  {
+    "id": 83,
+    "name": "Muesli Crocante com Frutos Vermelhos",
+    "price": 4.80,
+    "description": "Mistura de cereais integrais tostados com pedaços de frutos vermelhos liofilizados.",
+    "category": "cereais",
+    "photo": "https://placehold.co/600x400/DAB88B/313131?text=Muesli"
+  },
+  {
+    "id": 84,
+    "name": "Granola com Chocolate e Frutos Secos",
+    "price": 5.50,
+    "description": "Granola artesanal com pepitas de chocolate negro, amêndoas e avelãs.",
+    "category": "cereais",
+    "photo": "https://placehold.co/600x400/DAB88B/313131?text=Granola"
+  },
+  {
+    "id": 85,
+    "name": "Trigo Sarraceno em Grão",
+    "price": 3.90,
+    "description": "Grãos de trigo sarraceno, naturalmente sem glúten. Para cozinhar como o arroz.",
+    "category": "cereais",
+    "photo": "https://placehold.co/600x400/DAB88B/313131?text=Trigo+Sarraceno"
+  },
+  {
+    "id": 86,
+    "name": "Cereais de Arroz Tufado com Chocolate",
+    "price": 3.70,
+    "description": "Arroz tufado coberto com uma fina camada de chocolate de leite.",
+    "category": "cereais",
+    "photo": "https://placehold.co/600x400/DAB88B/313131?text=Arroz+Tufado"
+  },
+  {
+    "id": 87,
+    "name": "Flocos de Cevada",
+    "price": 2.80,
+    "description": "Flocos de cevada integral, uma ótima alternativa à aveia para as suas papas.",
+    "category": "cereais",
+    "photo": "https://placehold.co/600x400/DAB88B/313131?text=Cevada"
+  },
+  {
+    "id": 88,
+    "name": "Sementes de Chia",
+    "price": 4.20,
+    "description": "Sementes ricas em fibra e ómega 3. Para juntar a iogurtes ou fazer pudins.",
+    "category": "cereais",
+    "photo": "https://placehold.co/600x400/DAB88B/313131?text=Chia"
+  },
+  {
+    "id": 89,
+    "name": "Farinha de Espelta Integral",
+    "price": 3.60,
+    "description": "Farinha de espelta 100% integral, com um sabor rústico. Ideal para pão.",
+    "category": "cereais",
+    "photo": "https://placehold.co/600x400/DAB88B/313131?text=Farinha+Espelta"
+  },
+  {
+    "id": 90,
+    "name": "Papas de Milho (Maizena)",
+    "price": 2.10,
+    "description": "Amido de milho para preparar papas cremosas ou engrossar molhos.",
+    "category": "cereais",
+    "photo": "https://placehold.co/600x400/DAB88B/313131?text=Papas+Milho"
+  },
+  {
+    "id": 91,
+    "name": "Cereais Integrais em Argolas com Mel",
+    "price": 3.95,
+    "description": "Argolas de cereais integrais com um toque de mel. Crocantes e saborosas.",
+    "category": "cereais",
+    "photo": "https://placehold.co/600x400/DAB88B/313131?text=Argolas+Mel"
+  },
+  {
+    "id": 92,
+    "name": "Sementes de Linhaça Dourada",
+    "price": 3.10,
+    "description": "Sementes de linhaça ricas em fibra. Moer antes de consumir para melhor absorção.",
+    "category": "cereais",
+    "photo": "https://placehold.co/600x400/DAB88B/313131?text=Linhaça"
+  },
+  {
+    "id": 93,
+    "name": "Bagas de Goji",
+    "price": 6.50,
+    "description": "Bagas desidratadas conhecidas pelas suas propriedades antioxidantes.",
+    "category": "cereais",
+    "photo": "https://placehold.co/600x400/DAB88B/313131?text=Goji"
+  },
+  {
+    "id": 94,
+    "name": "Flocos de Centeio",
+    "price": 2.90,
+    "description": "Flocos de centeio integral, com um sabor robusto. Para papas ou muesli.",
+    "category": "cereais",
+    "photo": "https://placehold.co/600x400/DAB88B/313131?text=Centeio"
+  },
+  {
+    "id": 95,
+    "name": "Millet em Grão",
+    "price": 3.40,
+    "description": "Também conhecido como milho-painço, é um cereal sem glúten muito versátil.",
+    "category": "cereais",
+    "photo": "https://placehold.co/600x400/DAB88B/313131?text=Millet"
+  },
+  {
+    "id": 96,
+    "name": "Cereais com Recheio de Leite",
+    "price": 4.10,
+    "description": "Almofadinhas de cereais estaladiças com um recheio cremoso de leite.",
+    "category": "cereais",
+    "photo": "https://placehold.co/600x400/DAB88B/313131?text=Cereais+Recheio"
+  },
+  {
+    "id": 97,
+    "name": "Farelo de Trigo",
+    "price": 1.99,
+    "description": "Fonte de fibra para adicionar a iogurtes, sopas ou receitas de pão e bolos.",
+    "category": "cereais",
+    "photo": "https://placehold.co/600x400/DAB88B/313131?text=Farelo"
+  },
+  {
+    "id": 98,
+    "name": "Flocos de Soja",
+    "price": 3.75,
+    "description": "Flocos de soja ricos em proteína vegetal. Podem ser usados como os flocos de aveia.",
+    "category": "cereais",
+    "photo": "https://placehold.co/600x400/DAB88B/313131?text=Flocos+Soja"
+  },
+  {
+    "id": 99,
+    "name": "Sementes de Sésamo",
+    "price": 2.80,
+    "description": "Sementes de sésamo (gergelim) para adicionar a saladas, pães ou pratos orientais.",
+    "category": "cereais",
+    "photo": "https://placehold.co/600x400/DAB88B/313131?text=Sésamo"
+  },
+  {
+    "id": 100,
+    "name": "Cevada Solúvel",
+    "price": 3.50,
+    "description": "Preparado em pó para bebida de cevada, uma alternativa ao café sem cafeína.",
+    "category": "cereais",
+    "photo": "https://placehold.co/600x400/DAB88B/313131?text=Cevada+Solúvel"
+  }
+]

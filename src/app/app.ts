@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Products } from '../services/products';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +9,11 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('products-checkout');
+  productsService = inject(Products)
+
+  protected products = this.productsService.getProducts()
+
+  constructor(){
+    console.log(this.products)
+  }
 }
