@@ -1,1 +1,7 @@
-<router-outlet />
+<ul>
+ @for (produto of products; track produto.id){
+   <li>
+    #{{ produto.id }}: {{ produto.name }}
+  </li>
+}
+</ul>
