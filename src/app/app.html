@@ -1,7 +1,10 @@
 <ul>
- @for (produto of products; track produto.id){
+ @for (produto of pagedProducts(); track produto.id){
    <li>
     #{{ produto.id }}: {{ produto.name }}
   </li>
 }
 </ul>
+<button (click)="prevPage()" [disabled]="page() === 1">Anterior</button>
+<button (click)="nextPage()" [disabled]="page() * pageSize >= products.length">Próxima</button>
+<span>Página {{ page() }}</span>
