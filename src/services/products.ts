@@ -1,7 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 import productsJson from '../../products.json'
 
-interface IProduct {
+export interface IProduct {
   id: number
   name: string
   price: number
@@ -19,4 +19,5 @@ export class Products {
   getProducts() {
     return this.products()
   }
+
 }

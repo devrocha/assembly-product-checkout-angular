@@ -1,0 +1,18 @@
+<header class="header">
+    <div class="container">
+        <nav class="nav">
+            <div class="logo">
+                <h1>Compras</h1>
+            </div>
+            <div class="nav-items">
+                <a [routerLink]="['/home']">Home</a>
+                <div class="cart-icon">
+                    <a [routerLink]="['/cart']">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">{{ cartTotal() }}</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>

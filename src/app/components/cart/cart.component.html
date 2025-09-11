@@ -1,0 +1,13 @@
+<main class="products-container">
+    <div class="product-box" *ngFor="let product of cartItems()">
+        <img [src]='product.photo' alt="Product" class="product-image">
+        <div class="product-info">
+            <h3 class="product-title">{{product.name}}</h3>
+            <p class="product-price">{{product.price}}</p>
+            <div class="quantity-controls">
+                <div>{{product.quantity}}</div>
+            </div>
+            <button class="add-to-cart" (click)="removeProduct(product.id)">Remover do Carrinho</button>
+        </div>
+    </div>
+</main>

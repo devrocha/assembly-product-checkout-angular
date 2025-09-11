@@ -1,0 +1,38 @@
+<div class="search-container">
+    <div class="search-bar">
+        <input type="text" [value]='search()' (input)="search.set($event.target.value)"
+            placeholder="Pesquisar produtos..." />
+        <button type="submit">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+</div>
+<main class="products-container">
+    <div class="product-box" *ngFor="let product of products()">
+        <img [src]='product.photo' alt="Product" class="product-image">
+        <div class="product-info">
+            <h3 class="product-title">{{product.name}}</h3>
+            <p class="product-price">{{product.price}}</p>
+            <div class="quantity-controls">
+                <button class="quantity-btn minus" (click)="decrementQuantity(product)">-</button>
+                <div>{{ product.quantity }}</div>
+                <button class="quantity-btn plus" (click)="incrementQuantity(product)">+</button>
+            </div>
+            <button class="add-to-cart" (click)="addToCart(product)">Adicionar ao Carrinho</button>
+        </div>
+    </div>
+</main>
+<div class="pagination">
+    <button class="pagination-button" [disabled]="currentPage() === 1" (click)="goToPage(currentPage() - 1)">
+        <span>&laquo;</span>
+    </button>
+
+    <button class="pagination-button" *ngFor="let page of pages()" [class.active]="page === currentPage()"
+        (click)="goToPage(page)">
+        {{ page }}
+    </button>
+
+    <button class="pagination-button" [disabled]="currentPage() === totalPages()" (click)="goToPage(currentPage() + 1)">
+        <span>&raquo;</span>
+    </button>
+</div>
