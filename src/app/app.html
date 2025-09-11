@@ -1,3 +1,10 @@
+<input
+  type="text"
+  placeholder="Filtrar por nome ou categoria"
+  [(ngModel)]="filterText"
+  (ngModelChange)="page = 1"
+/>
+
 <ul>
   <li *ngFor="let product of paginatedProducts">
     #{{ product.id }}: {{ product.name }}
@@ -6,6 +13,6 @@
 
 
 <button (click)="prevPage()" [disabled]="page === 1">Anterior</button>
-<button (click)="nextPage()" [disabled]="page * pageSize >= products.length">Próxima</button>
+<button (click)="nextPage()" [disabled]="page * pageSize >= filteredProducts.length">Próxima</button>
 <p>Página: {{ page }}</p>
 <router-outlet />
