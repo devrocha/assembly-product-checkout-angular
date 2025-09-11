@@ -1,3 +1,10 @@
+<input
+  type="text"
+  placeholder="Inserir categoria ou nome do produto"
+  [value]="filterTerm()"
+  (input)="filterTerm.set($any($event.target).value); page.set(1)"
+/>
+
 <ul>
  @for (produto of pagedProducts(); track produto.id){
    <li>
@@ -6,5 +13,10 @@
 }
 </ul>
 <button (click)="prevPage()" [disabled]="page() === 1">Anterior</button>
-<button (click)="nextPage()" [disabled]="page() * pageSize >= products.length">Próxima</button>
+<button
+  (click)="nextPage()"
+  [disabled]="page() * pageSize >= filteredProducts().length"
+>
+  Próxima
+</button>
 <span>Página {{ page() }}</span>

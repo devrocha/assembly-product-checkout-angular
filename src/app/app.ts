@@ -17,10 +17,6 @@ export class App {
   page = signal(1);
   pageSize = 25;
 
-  pagedProducts = computed(() => {
-    const start = (this.page() - 1) * this.pageSize;
-    return this.products.slice(start, start + this.pageSize);
-  });
 
   nextPage() {
     if ((this.page() * this.pageSize) < this.products.length) {
@@ -33,4 +29,19 @@ export class App {
       this.page.update(p => p - 1);
     }
   }
+  filterTerm = signal('');
+
+  filteredProducts = computed(() => {
+  const term = this.filterTerm().toLowerCase();
+  if (!term) return this.products;
+  return this.products.filter(
+    p =>
+      p.name.toLowerCase().includes(term) ||
+      p.category?.toLowerCase().includes(term)
+  );
+});
+  pagedProducts = computed(() => {
+  const start = (this.page() - 1) * this.pageSize;
+  return this.filteredProducts().slice(start, start + this.pageSize);
+});
 }
