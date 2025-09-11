@@ -18,8 +18,11 @@ export class CartComponent {
 
   private totalItems = this.products.length;
 
-  protected totalPages = Math.ceil(this.products.length / this.itemsPerPage);
+  protected totalPages = Math.ceil(this.totalItems / this.itemsPerPage);
+
   protected pages: number[] = [];
+
+  protected filterText = '';
 
   constructor() {
     for (let i = 1; i <= this.totalPages; i++) {
@@ -30,17 +33,23 @@ export class CartComponent {
 
   protected currentPage = 1;
 
+  protected selectedProducts = this.products;
 
   protected paginatedProducts() {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
-    return this.products.slice(startIndex, endIndex);
+    return this.selectedProducts.slice(startIndex, endIndex);
   }
 
   protected goToPage(page: number) {
     if (page >= 1 && page <= this.totalPages) {
       this.currentPage = page;
     }
+  }
+
+  protected addFilter(value: string) {
+    this.filterText = value;
+    this.selectedProducts = this.products.filter(p => p.name.toLowerCase().includes(this.filterText.toLowerCase()));
   }
 }
 
