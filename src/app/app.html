@@ -1,4 +1,16 @@
 <router-outlet />
-@for (item of products; track item.id) {
-  <div>{{ item.id}} | {{ item.name }}</div>
-}
+<div>
+  <p>Página {{ currentPage() }}</p>
+</div>
+<div>
+  @for (item of products; track item.id) {
+    <span>
+      {{ item.id}} | {{ item.name }} <br/>
+    </span>
+  }
+</div>
+<br>
+<div>
+  <button (click)="goToPreviousPage()" [disabled]="currentPage() === 1">Página Anterior</button>
+  <button (click)="goToNextPage()">Próxima Página</button>
+</div>
