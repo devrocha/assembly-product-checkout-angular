@@ -1,1 +1,4 @@
 <router-outlet />
+@for (item of products; track item.id) {
+  <div>{{ item.id}} | {{ item.name }}</div>
+}
