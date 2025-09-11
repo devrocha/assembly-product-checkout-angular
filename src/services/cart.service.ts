@@ -35,6 +35,11 @@ export class CartService {
       return;
     }
 
+    if (item.quantity <= 0) {
+      alert('Quantidade inválida!');
+      return;
+    }
+
     this.cartItems.set([...this.cartItems(), item]);
   }
 
