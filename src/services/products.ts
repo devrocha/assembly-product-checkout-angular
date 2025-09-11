@@ -17,6 +17,6 @@ export class Products {
   private products = signal<IProduct[]>(productsJson)
 
   getProducts() {
-    return this.products()
+    return this.products(); // retorna o array!
   }
 }

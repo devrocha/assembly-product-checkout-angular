@@ -1,6 +1,11 @@
 <ul>
-  <li *ngFor="let product of products">
+  <li *ngFor="let product of paginatedProducts">
     #{{ product.id }}: {{ product.name }}
   </li>
 </ul>
+
+
+<button (click)="prevPage()" [disabled]="page === 1">Anterior</button>
+<button (click)="nextPage()" [disabled]="page * pageSize >= products.length">Próxima</button>
+<p>Página: {{ page }}</p>
 <router-outlet />
