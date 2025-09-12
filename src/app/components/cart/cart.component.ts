@@ -1,4 +1,4 @@
-import { Component, inject, signal, Signal } from '@angular/core';
+import { Component, computed, inject, signal, Signal } from '@angular/core';
 import { Products } from '../../../services/products';
 import { CommonModule } from '@angular/common';
 
@@ -14,43 +14,47 @@ export class CartComponent {
 
   protected products = this.productService.getProducts();
 
-  protected selectedProducts = this.products;
+  protected filteredProducts = signal(this.products);
 
-  protected paginatedProducts() {
-    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+  protected paginatedProducts = computed(() => {
+    const startIndex = (this.currentPage() - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
-    return this.selectedProducts.slice(startIndex, endIndex);
-  }
+    return this.filteredProducts().slice(startIndex, endIndex);
+  });
 
   private itemsPerPage = 25;
 
-  private totalItems = signal(this.selectedProducts.length);
+  private totalItems = computed(() => this.filteredProducts().length);
 
-  protected totalPages = signal(Math.ceil(this.totalItems() / this.itemsPerPage));
+  protected totalPages = computed(() => (Math.ceil(this.totalItems() / this.itemsPerPage)));
 
-  protected pages: number[] = [];
+  protected filterText = signal('');
 
-  protected filterText = '';
+  protected arrayOfPages = computed(() => {
 
-  constructor() {
+    let pages: number[] = [];
+
     for (let i = 1; i <= this.totalPages(); i++) {
-      this.pages.push(i);
+      pages.push(i);
     }
+    return pages;
+  });
 
-  }
-
-  protected currentPage = 1;
+  protected currentPage = signal(1);
 
   protected goToPage(page: number) {
     if (page >= 1 && page <= this.totalPages()) {
-      this.currentPage = page;
+      this.currentPage.update(() => page);
     }
   }
 
   protected addFilter(value: string) {
-    this.filterText = value;
-    this.selectedProducts = this.products.filter(p => p.name.toLowerCase().includes(this.filterText.toLowerCase())
-      || p.category.toLowerCase().includes(this.filterText.toLowerCase()));
+    this.filterText.update(() => value);
+
+    const toLowerCase = this.filterText().toLowerCase();
+
+    this.filteredProducts.update(() => this.products.filter(p => p.name.toLowerCase().includes(toLowerCase)
+      || p.category.toLowerCase().includes(toLowerCase)));
   }
 }
 
