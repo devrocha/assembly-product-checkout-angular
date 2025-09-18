@@ -1,50 +1,68 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, computed } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Products } from '../services/products';
+import { Products as ProductsService } from '../services/products';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [RouterOutlet], 
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
-  productsService = inject(Products)
+  private productsService = inject(ProductsService);
 
-  // Controle de paginação
-  currentPage = signal(1); // Página atual
-  itemsPerPage = 25; // Número de itens por página
+  currentPage = signal(1);
+  itemsPerPage = 25;
+  selectedCategory = signal('');
 
-  // Produtos filtrados com base na página atual
-  protected products = this.getPaginatedProducts();
+  categories = computed(() => {
+    const allProducts = this.productsService.getProducts();
+    const categoryList = allProducts.map(product => product.category);
+    return [...new Set(categoryList)].sort();
+  });
 
-  // Método para obter os produtos da página atual
-  getPaginatedProducts() {
+  private filteredProducts = computed(() => {
+    const allProducts = this.productsService.getProducts();
+    const category = this.selectedCategory();
+    return category
+      ? allProducts.filter(product => product.category === category)
+      : allProducts;
+  });
+
+  totalPages = computed(() => {
+    const totalItems = this.filteredProducts().length;
+    return Math.ceil(totalItems / this.itemsPerPage);
+  });
+
+  pages = computed(() => {
+    return Array.from({ length: this.totalPages() }, (_, index) => index + 1);
+  });
+
+  products = computed(() => {
     const startIndex = (this.currentPage() - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
-    return this.productsService.getProducts().slice(startIndex, endIndex);
+    return this.filteredProducts().slice(startIndex, endIndex);
+  });
+
+  onCategoryChange(category: string) {
+    this.selectedCategory.set(category);
+    this.currentPage.set(1);
   }
 
-  // Ir para a próxima página
-  goToNextPage() {
-    this.currentPage.update(value => value + 1);
-    this.products = this.getPaginatedProducts();
-  }
-
-  // Voltar para a página anterior
-  goToPreviousPage() {
-    if (this.currentPage() > 1) {
-      this.currentPage.update(value => value - 1);
-      this.products = this.getPaginatedProducts();
+  goToPage(page: number) {
+    if (page >= 1 && page <= this.totalPages()) {
+      this.currentPage.set(page);
     }
   }
 
-  // goToNextPage() {
-  //     this.display.update(value => value + 25); // Incrementa o idMax em 25
-  //     this.products = this.productsService.getProducts().filter(product => product.id <= this.display());
-  //   }
+  goToNextPage() {
+    if (this.currentPage() < this.totalPages()) {
+      this.currentPage.update(page => page + 1);
+    }
+  }
 
-  constructor(){
-    console.log(this.products)
+  goToPreviousPage() {
+    this.currentPage.update(page => (page > 1 ? page - 1 : 1));
   }
 }

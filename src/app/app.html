@@ -1,16 +1,37 @@
 <router-outlet />
 <div>
-  <p>Página {{ currentPage() }}</p>
+  <span>
+    <p>Página {{ currentPage() }} de {{ totalPages() }}</p>
+    <select (change)="onCategoryChange($any($event.target).value)">
+      <option value="">Todas as Categorias</option>
+      @for (category of categories(); track category) {
+        <option [value]="category">{{ category }}</option>
+      }
+    </select>
+  </span>
+
 </div>
 <div>
-  @for (item of products; track item.id) {
+  @for (item of products(); track item.id) {
     <span>
-      {{ item.id}} | {{ item.name }} <br/>
+      {{ item.id}} | {{ item.name }} | {{item.category}} <br/>
     </span>
+  } @empty {
+    <span>Nenhum produto encontrado para esta categoria.</span>
   }
 </div>
 <br>
-<div>
-  <button (click)="goToPreviousPage()" [disabled]="currentPage() === 1">Página Anterior</button>
-  <button (click)="goToNextPage()">Próxima Página</button>
+<!-- ATUALIZADO: Bloco de paginação completo -->
+<div class="pagination-controls">
+  <button (click)="goToPreviousPage()" [disabled]="currentPage() === 1">Anterior</button>
+
+  @for (page of pages(); track page) {
+    <button 
+      (click)="goToPage(page)" 
+      [class.active]="currentPage() === page">
+      {{ page }}
+    </button>
+  }
+
+  <button (click)="goToNextPage()" [disabled]="currentPage() >= totalPages()">Próxima</button>
 </div>
