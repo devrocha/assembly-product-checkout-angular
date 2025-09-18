@@ -1,5 +1,5 @@
 .card {
-  width: 150px;
+  width: 200px;
   margin-top: 20px;
   margin-left: 10px;
   border-radius: 40px;
@@ -43,3 +43,11 @@
 .card-footer button:hover {
   background-color: #e0e0e0;
 }
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+}
+

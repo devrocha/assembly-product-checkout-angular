@@ -44,4 +44,13 @@ export class App {
   const start = (this.page() - 1) * this.pageSize;
   return this.filteredProducts().slice(start, start + this.pageSize);
 });
+addToCart(produto: any) {
+  produto.quantity = (produto.quantity || 0) + 1;
+}
+
+removeFromCart(produto: any) {
+  if (produto.quantity && produto.quantity > 0) {
+    produto.quantity--;
+  }
+}
 }
