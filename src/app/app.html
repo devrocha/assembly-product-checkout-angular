@@ -5,9 +5,24 @@
   (ngModelChange)="page = 1"
 />
 
-<ul>
+<ul class="products-list">
   <li *ngFor="let product of paginatedProducts">
-    #{{ product.id }}: {{ product.name }}
+    <div class="product-card">
+      <div class="product-header">
+        <span class="product-name">{{ product.name }}</span>
+      </div>
+      <div class="product-description">
+        {{ product.description }}
+      </div>
+      <div class="product-photo">
+        <img [src]="product.photo" alt="{{ product.name }}" />
+      </div>
+      <div class="product-controls">
+        <button class="circle">-</button>
+        <span class="quantity">0</span>
+        <button class="circle">+</button>
+      </div>
+    </div>
   </li>
 </ul>
 
