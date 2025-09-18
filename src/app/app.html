@@ -11,26 +11,28 @@
   </span>
 
 </div>
-<div class="row flex-container">
-  <div class="column">
-    @for (item of products(); track item.id) {
-    <div class="card">
-      <h2>{{ item.name }}</h2>
-      <p class="">{{item.description}}</p>
-      <img>
-      <span>
-        <button class="cardButton">+</button>
-        <h2 style="display: inline;"> 0 </h2>
-        <button class="cardButton">-</button>
-      </span>
-    </div>
-    <!-- <span>
+<div class="productGrid">
+  @for (item of products(); track item.id) {
+  <div class="row flex-container">
+    <div class="column">
+      <div class="card">
+        <h2 class="product-name">{{ item.name }}</h2>
+        <p class="product-description">{{item.description}}</p>
+        <img class="product-image" src={{item.photo}}>
+        <span>
+          <button class="cardButton">+</button>
+          <h2 style="display: inline;"> 0 </h2>
+          <button class="cardButton">-</button>
+        </span>
+      </div>
+      <!-- <span>
       {{ item.id}} | {{ item.name }} | {{item.category}} <br />
     </span> -->
-    } @empty {
-    <span>Nenhum produto encontrado para esta categoria.</span>
-    }
+    </div>
   </div>
+  } @empty {
+  <span>Nenhum produto encontrado para esta categoria.</span>
+  }
 </div>
 <br>
 <!-- ATUALIZADO: Bloco de paginação completo -->
