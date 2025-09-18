@@ -5,20 +5,32 @@
     <select (change)="onCategoryChange($any($event.target).value)">
       <option value="">Todas as Categorias</option>
       @for (category of categories(); track category) {
-        <option [value]="category">{{ category }}</option>
+      <option [value]="category">{{ category }}</option>
       }
     </select>
   </span>
 
 </div>
-<div>
-  @for (item of products(); track item.id) {
-    <span>
-      {{ item.id}} | {{ item.name }} | {{item.category}} <br/>
-    </span>
-  } @empty {
+<div class="row flex-container">
+  <div class="column">
+    @for (item of products(); track item.id) {
+    <div class="card">
+      <h2>{{ item.name }}</h2>
+      <p class="">{{item.description}}</p>
+      <img>
+      <span>
+        <button class="cardButton">+</button>
+        <h2 style="display: inline;"> 0 </h2>
+        <button class="cardButton">-</button>
+      </span>
+    </div>
+    <!-- <span>
+      {{ item.id}} | {{ item.name }} | {{item.category}} <br />
+    </span> -->
+    } @empty {
     <span>Nenhum produto encontrado para esta categoria.</span>
-  }
+    }
+  </div>
 </div>
 <br>
 <!-- ATUALIZADO: Bloco de paginação completo -->
@@ -26,11 +38,9 @@
   <button (click)="goToPreviousPage()" [disabled]="currentPage() === 1">Anterior</button>
 
   @for (page of pages(); track page) {
-    <button 
-      (click)="goToPage(page)" 
-      [class.active]="currentPage() === page">
-      {{ page }}
-    </button>
+  <button (click)="goToPage(page)" [class.active]="currentPage() === page">
+    {{ page }}
+  </button>
   }
 
   <button (click)="goToNextPage()" [disabled]="currentPage() >= totalPages()">Próxima</button>
