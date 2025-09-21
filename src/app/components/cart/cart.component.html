@@ -1,6 +1,6 @@
-<input type="text" [value]="filterText()" (input)="addFilter($event.target.value)" />
-
-
+<div class="search-container">
+  <input type="text" [value]="filterText()" (input)="addFilter($event.target.value)" />
+</div>
 <div class="cart-container">
   @for(product of paginatedProducts() ; track product.id)
   {
@@ -21,8 +21,10 @@
 
 
 <div class="pagination">
-  <button [disabled]="currentPage() === 1" (click)="goToPage(currentPage()-1)">Anterior</button>
-  <button *ngFor="let page of arrayOfPages()" (click)="goToPage(page)" [class.active]="page === currentPage()">
+  <button class="move-pages" [disabled]="currentPage() === 1" (click)="goToPage(currentPage()-1)">Anterior</button>
+  <button class="pages" *ngFor="let page of arrayOfPages()" (click)="goToPage(page)"
+    [class.active]="page === currentPage()">
     {{ page }}</button>
-  <button [disabled]="currentPage() === totalPages()" (click)="goToPage(currentPage() + 1)">Próxima</button>
+  <button class="move-pages" [disabled]="currentPage() === totalPages()"
+    (click)="goToPage(currentPage() + 1)">Próxima</button>
 </div>

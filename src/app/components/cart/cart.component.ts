@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal, Signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { Products } from '../../../services/products';
 import { CommonModule } from '@angular/common';
 
@@ -53,7 +53,7 @@ export class CartComponent {
 
     const toLowerCase = this.filterText().toLowerCase();
 
-    this.filteredProducts.update(() => this.products.filter(p => p.name.toLowerCase().includes(toLowerCase)
+    return this.filteredProducts.update(() => this.products.filter(p => p.name.toLowerCase().includes(toLowerCase)
       || p.category.toLowerCase().includes(toLowerCase)));
   }
 }
