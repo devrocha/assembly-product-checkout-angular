@@ -1,6 +1,26 @@
-<div class="total-quantity-counter">
-<span> Quantity = {{ totalquantity }}</span>
+<div class="total-quantity-counter" (click)="toggleCartDropdown()">
+  <span> Quantity = {{ totalquantity }}</span>
+  <div 
+    #cartDropdown
+    class="cart-dropdown" 
+    *ngIf="showcart" 
+    (click)="$event.stopPropagation()">
+    <div *ngIf="cartProducts.length === 0" class="cart-empty">Cart is empty</div>
+      <ul *ngIf="cartProducts.length > 0">
+        <li *ngFor="let product of cartProducts" class="cart-item">
+          <span>{{ product.name }}</span>
+          <div class="cart-controls">
+            <button (click)="removeQuantity(product)">-</button>
+            <span>{{ product.quantity }}</span>
+            <button (click)="addQuantity(product)">+</button>
+          </div>
+        </li>
+
+      </ul>
+
+  </div>
 </div>
+
 
 <input
   type="text"

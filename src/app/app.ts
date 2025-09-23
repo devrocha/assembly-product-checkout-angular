@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, ElementRef, HostListener, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -20,16 +20,27 @@ export class App {
   
 
   constructor() {
-    console.log(this.products); // sem parênteses
-
-    
+    console.log(this.products); // sem parênteses 
   }
 
+  constructor(private elementRef: ElementRef){}
+  
   filterText = '';
 
   page = 1;
   pageSize = 25;
 
+  showcart = false;
+
+  toggleCartDropdown(){
+    this.showcart= !this.showcart;
+  }
+
+  @HostListener('document:click',['$event'])
+  onDocumentClick(event: MouseEvent){
+    const cartDropdown = this.elementRef.nativeElement.querySelector('.cart-dropdown');
+
+  }
 
 get filteredProducts() {
   const filter = this.filterText.trim().toLowerCase();
@@ -55,7 +66,7 @@ get filteredProducts() {
     return this.products.reduce((sum, p) => sum + (p.quantity || 0), 0);
   }
 
-  get cartItems(){
+  get cartProducts(){
     return this.products.filter(p => p.quantity > 0);
   }
 
