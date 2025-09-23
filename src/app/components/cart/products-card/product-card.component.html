@@ -1,0 +1,16 @@
+<input type="text" [value]="filterText()" (input)="addFilter($event.target.value)"/>
+
+<div class="product-list">
+    <div class="product-card" *ngFor="let product of paginatedProducts()">
+        <div class="product-info">
+            <h2 class="product-name">{{ product.name }}</h2>
+            <p class="product-description">{{ product-description}}</p>
+            <img [src]="product-image" [alt]="product-name" class="product-image"/>
+            <span class="product-category">{{ product-category }}</span>
+            <div class="product-price">\${{ product.price }}</div>
+            <div class="product-quantity">
+                
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,9 +1,14 @@
+<div class="total-quantity-counter">
+<span> Quantity = {{ totalquantity }}</span>
+</div>
+
 <input
   type="text"
   placeholder="Filtrar por nome ou categoria"
   [(ngModel)]="filterText"
   (ngModelChange)="page = 1"
 />
+
 
 <ul class="products-list">
   <li *ngFor="let product of paginatedProducts">
@@ -19,9 +24,9 @@
         <img [src]="product.photo" alt="{{ product.name }}" />
       </div>
       <div class="product-controls">
-        <button class="circle">-</button>
-        <span class="quantity">0</span>
-        <button class="circle">+</button>
+        <button class="circle" (click)="removeQuantity(product)">-</button>
+        <span class="quantity">{{ product.quantity}}</span>
+        <button class="circle"(click)="addQuantity(product)">+</button>
       </div>
     </div>
   </li>

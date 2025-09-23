@@ -14,7 +14,7 @@ import { Products } from '../services/products';
 export class App {
   productsService = inject(Products);
 
-  protected products = this.productsService.getProducts(); // array
+  protected products = this.productsService.getProducts().map(p =>({...p, quantity: 0})); // array
 
 
   
@@ -40,6 +40,24 @@ get filteredProducts() {
       p.category.toLowerCase().includes(filter)
   );
 }
+
+  addQuantity(product: any){
+    product.quantity= (product.quantity || 0) + 1;
+  }
+
+  removeQuantity(product: any){
+    if(product.quantity && product.quantity > 0){
+      product.quantity--;
+    }
+  }
+
+  get totalquantity(){
+    return this.products.reduce((sum, p) => sum + (p.quantity || 0), 0);
+  }
+
+  get cartItems(){
+    return this.products.filter(p => p.quantity > 0);
+  }
 
   get paginatedProducts() {
     const start = (this.page - 1) * this.pageSize;
