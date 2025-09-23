@@ -10,16 +10,15 @@ import { routes } from './app.routes';
   styleUrl: './app.scss'
 })
 export class App {
-  productsService = inject(Products);
+    productsService = inject(Products);
 
   protected products = this.productsService.getProducts();
 
   page = signal(1);
   pageSize = 25;
 
-
   nextPage() {
-    if ((this.page() * this.pageSize) < this.products.length) {
+    if ((this.page() * this.pageSize) < this.products().length) {
       this.page.update(p => p + 1);
     }
   }
@@ -29,28 +28,44 @@ export class App {
       this.page.update(p => p - 1);
     }
   }
+
   filterTerm = signal('');
 
   filteredProducts = computed(() => {
-  const term = this.filterTerm().toLowerCase();
-  if (!term) return this.products;
-  return this.products.filter(
-    p =>
+    const term = this.filterTerm().toLowerCase();
+    if (!term) return this.products();
+    return this.products().filter(p =>
       p.name.toLowerCase().includes(term) ||
       p.category?.toLowerCase().includes(term)
-  );
-});
-  pagedProducts = computed(() => {
-  const start = (this.page() - 1) * this.pageSize;
-  return this.filteredProducts().slice(start, start + this.pageSize);
-});
-addToCart(produto: any) {
-  produto.quantity = (produto.quantity || 0) + 1;
-}
+    );
+  });
 
-removeFromCart(produto: any) {
-  if (produto.quantity && produto.quantity > 0) {
-    produto.quantity--;
+  pagedProducts = computed(() => {
+    const start = (this.page() - 1) * this.pageSize;
+    return this.filteredProducts().slice(start, start + this.pageSize);
+  });
+
+  addToCart(produto: any) {
+    this.products.update(produtos =>
+      produtos.map(p =>
+        p.id === produto.id
+          ? { ...p, quantity: (p.quantity || 0) + 1 }
+          : p
+      )
+    );
   }
-}
+
+  removeFromCart(produto: any) {
+    this.products.update(produtos =>
+      produtos.map(p =>
+        p.id === produto.id && p.quantity > 0
+          ? { ...p, quantity: p.quantity - 1 }
+          : p
+      )
+    );
+  }
+
+  totalQuantity = computed(() =>
+    this.products().reduce((sum, p) => sum + (p['quantity'] || 0), 0)
+  );
 }
