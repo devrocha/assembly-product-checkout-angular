@@ -25,6 +25,9 @@ export class App {
     
   }
 
+  showCart = false;
+  cartProducts: { product: any, quantity: number }[] = [];
+
   filterText = '';
 
   page = 1;
@@ -56,5 +59,33 @@ get filteredProducts() {
     if (this.page > 1) {
       this.page--;
     }
+  }
+
+  increment(productId: number) {
+  this.productsService.increment(productId);
+  if (this.showCart) {
+    this.cartProducts = this.productsService.getCartProducts();
+  }
+}
+
+  decrement(productId: number) {
+  this.productsService.decrement(productId);
+  if (this.showCart) {
+    this.cartProducts = this.productsService.getCartProducts();
+  }
+}
+
+  get quantities() {
+    // Retorna o objeto de quantidades do service
+    return this.productsService.getCart();
+  }
+
+  get totalQuantity() {
+    return this.productsService.getTotalQuantity();
+  }
+
+  showCartProducts() {
+    this.cartProducts = this.productsService.getCartProducts();
+    this.showCart = true;
   }
 }
