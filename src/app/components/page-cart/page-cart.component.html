@@ -1,0 +1,21 @@
+<div class="cart-title">
+    <h1>Meu Carrinho</h1>
+    <a class="return" [routerLink]="['/cart']">Continuar Comprando</a>
+</div>
+<div class="cart-container">
+    @for(product of cartProducts() ; track product.id)
+    {
+    <div class="cart-item">
+        <div class="cart-item-informations">
+            <h2>{{ product.name }}</h2>
+            <p class="cart-item-description">{{ product.description }}</p>
+            <img [src]="product.photo" alt="foto" />
+        </div>
+        <div class="quantity-container">
+            <button class="quantity-controls" (click)="decrementQuantity(product)">-</button>
+            <span>{{product.quantity}}</span>
+            <button class="quantity-controls" (click)="incrementQuantity(product)">+</button>
+        </div>
+    </div>
+    }
+</div>

@@ -1,10 +1,20 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { Products } from '../../../services/products';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
+export interface IProductWithQuantity {
+  id: number
+  name: string
+  price: number
+  description: string
+  category: string
+  photo: string
+  quantity: number
+}
 @Component({
   selector: 'app-cart',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss'
 })
@@ -12,7 +22,17 @@ export class CartComponent {
 
   private productService = inject(Products);
 
-  protected products = this.productService.getProducts();
+  protected products = this.productService.getProducts().map(product => ({ ...product, quantity: 0 }));
+
+  protected cartProducts = this.productService.getCartProducts();
+
+  protected totalCartItems = computed(() => {
+    let total = 0;
+    for (let product of this.cartProducts()) {
+      total += product.quantity;
+    }
+    return total;
+  });
 
   protected filteredProducts = signal(this.products);
 
@@ -48,6 +68,25 @@ export class CartComponent {
     }
   }
 
+  protected incrementQuantity(product: IProductWithQuantity) {
+
+    product.quantity++;
+
+    this.productService.addToCart(product);
+  }
+
+  protected decrementQuantity(product: IProductWithQuantity) {
+    if (product.quantity > 0) {
+      product.quantity--;
+    }
+
+    this.productService.addToCart(product);
+
+    if (product.quantity === 0) {
+      this.productService.removeFromCart(product.id);
+    }
+  }
+
   protected addFilter(value: string) {
     this.filterText.update(() => value);
 
@@ -56,5 +95,6 @@ export class CartComponent {
     return this.filteredProducts.update(() => this.products.filter(p => p.name.toLowerCase().includes(toLowerCase)
       || p.category.toLowerCase().includes(toLowerCase)));
   }
+
 }
 
