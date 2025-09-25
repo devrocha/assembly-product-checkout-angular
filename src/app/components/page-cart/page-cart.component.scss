@@ -1,9 +1,15 @@
+.cart-header {
+
+    display: flex;
+    justify-content: center;
+}
+
 .cart-title {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 0 2rem;
     margin-bottom: 1rem;
+    gap: 1rem;
 }
 
 .return {
