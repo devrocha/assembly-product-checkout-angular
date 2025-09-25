@@ -5,7 +5,8 @@
     class="cart-dropdown" 
     *ngIf="showcart" 
     (click)="$event.stopPropagation()">
-    <div *ngIf="cartProducts.length === 0" class="cart-empty">Cart is empty</div>
+    <div *ngIf="cartProducts.length === 0" class="cart-empty" 
+      (click)="goToCart()">Cart is empty</div>
       <ul *ngIf="cartProducts.length > 0">
         <li *ngFor="let product of cartProducts" class="cart-item">
           <span>{{ product.name }}</span>

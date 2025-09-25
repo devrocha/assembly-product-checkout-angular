@@ -1,5 +1,5 @@
 import { Component, ElementRef, HostListener, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Products } from '../services/products';
@@ -16,14 +16,10 @@ export class App {
 
   protected products = this.productsService.getProducts().map(p =>({...p, quantity: 0})); // array
 
-
-  
-
-  constructor() {
-    console.log(this.products); // sem parênteses 
-  }
-
-  constructor(private elementRef: ElementRef){}
+  constructor(
+    private router: Router,
+    private elementRef: ElementRef
+  ){}
   
   filterText = '';
 
@@ -31,6 +27,11 @@ export class App {
   pageSize = 25;
 
   showcart = false;
+
+  goToCart(){
+    this.showcart = false;
+    this.router.navigate(['/cart']);
+  }
 
   toggleCartDropdown(){
     this.showcart= !this.showcart;
@@ -86,4 +87,6 @@ get filteredProducts() {
       this.page--;
     }
   }
+
+
 }
