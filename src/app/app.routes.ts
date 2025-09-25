@@ -1,7 +1,14 @@
 import { Routes } from '@angular/router';
-import { App } from './app';
 import { CartPage } from './components/cart/cart';
+import { ListItems } from './components/list-items/list-items';
+
 export const routes: Routes = [
-    {path: '', component:App},
-    {path: 'carrinho', component:CartPage}
+  {
+    path: '',
+    component: ListItems
+  },
+  {
+    path: 'carrinho',
+    component: CartPage
+  }
 ];

@@ -1,0 +1,39 @@
+<div class="top-bar">
+  <div class="cart-icon-container">
+    <span class="cart-label">{{ totalQuantity }}</span>
+    <span class="cart-icon" (click)="goToCart()">🛒</span>
+  </div>
+  <input
+    type="text"
+    class="filter-input"
+    placeholder="Filtrar por nome ou categoria"
+    [(ngModel)]="filterText"
+    (ngModelChange)="page = 1"
+  />
+</div>
+
+<ul class="products-list">
+  <li *ngFor="let product of paginatedProducts">
+    <div class="product-card">
+      <div class="product-header">
+        <span class="product-name">{{ product.name }}</span>
+      </div>
+      <div class="product-description">
+        {{ product.description }}
+      </div>
+      <span class="description-tooltiptext">{{ product.description }}</span>
+      <div class="product-photo">
+        <img [src]="product.photo" alt="{{ product.name }}" />
+      </div>
+      <div class="product-controls">
+        <button class="circle" (click)="decrement(product.id)">-</button>
+        <span class="quantity">{{ quantities[product.id] || 0 }}</span>
+        <button class="circle" (click)="increment(product.id)">+</button>
+      </div>
+    </div>
+  </li>
+</ul>
+
+<button (click)="prevPage()" [disabled]="page === 1">Anterior</button>
+<button (click)="nextPage()" [disabled]="page * pageSize >= filteredProducts.length">Próxima</button>
+<p>Página: {{ page }}</p>
