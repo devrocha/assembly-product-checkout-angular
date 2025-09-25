@@ -15,4 +15,14 @@ export class CartComponent implements OnInit{
   ngOnInit(){
     this.cartProducts = this.productsService.getProducts().filter(p => p.quantity > 0);
   }
+
+  addQuantity(product: IProduct){
+    product.quantity++;
+  }
+
+  removeQuantity(product: IProduct){
+    if(product.quantity > 0){
+      product.quantity--;
+    }
+  }
 }

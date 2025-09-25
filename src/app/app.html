@@ -16,9 +16,13 @@
             <button (click)="addQuantity(product)">+</button>
           </div>
         </li>
-
       </ul>
-
+      <button 
+      *ngIf="cartProducts.length > 0" 
+      class="go-to-cart-btn" 
+      (click)="goToCart()">
+      Go to Cart
+    </button>
   </div>
 </div>
 
