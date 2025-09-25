@@ -3,6 +3,9 @@ import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Products } from '../services/products';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-root',
@@ -10,9 +13,13 @@ import { Products } from '../services/products';
   imports: [RouterOutlet, CommonModule , FormsModule],
   templateUrl: './app.html',
   styleUrls: ['./app.scss']
+  
 })
+
+
 export class App {
   productsService = inject(Products);
+  router = inject(Router);
 
   protected products = this.productsService.getProducts(); // array
 
@@ -88,4 +95,9 @@ get filteredProducts() {
     this.cartProducts = this.productsService.getCartProducts();
     this.showCart = true;
   }
+
+  goToCart() {
+    this.router.navigate(['/carrinho']);
+  }
+  
 }

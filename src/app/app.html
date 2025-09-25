@@ -1,69 +1,42 @@
-<div *ngIf="!showCart">
-  <div class="top-bar">
-    <div class="cart-icon-container">
-      <span class="cart-label">{{ totalQuantity }}</span>
-      <span class="cart-icon" (click)="showCartProducts()">🛒</span>
-    </div>
-    <input
-      type="text"
-      class="filter-input"
-      placeholder="Filtrar por nome ou categoria"
-      [(ngModel)]="filterText"
-      (ngModelChange)="page = 1"
-    />
+<div class="top-bar">
+  <div class="cart-icon-container">
+    <span class="cart-label">{{ totalQuantity }}</span>
+    <span class="cart-icon" (click)="goToCart()">🛒</span>
   </div>
-
-  <ul class="products-list">
-    <li *ngFor="let product of paginatedProducts">
-      <div class="product-card">
-        <div class="product-header">
-          <span class="product-name">{{ product.name }}</span>
-        </div>
-        <div class="product-description">
-          {{ product.description }}
-        </div>
-        <span class="description-tooltiptext">{{ product.description }}</span>
-        <div class="product-photo">
-          <img [src]="product.photo" alt="{{ product.name }}" />
-        </div>
-        <div class="product-controls">
-          <button class="circle" (click)="decrement(product.id)">-</button>
-          <span class="quantity">{{ quantities[product.id] || 0 }}</span>
-          <button class="circle" (click)="increment(product.id)">+</button>
-        </div>
-      </div>
-    </li>
-  </ul>
-
-  <button (click)="prevPage()" [disabled]="page === 1">Anterior</button>
-  <button (click)="nextPage()" [disabled]="page * pageSize >= filteredProducts.length">Próxima</button>
-  <p>Página: {{ page }}</p>
-  <router-outlet />
+  <input
+    type="text"
+    class="filter-input"
+    placeholder="Filtrar por nome ou categoria"
+    [(ngModel)]="filterText"
+    (ngModelChange)="page = 1"
+  />
 </div>
 
-<!-- Carrinho: só aparece quando showCart é true -->
-<div *ngIf="showCart" class="cart-products-modal">
-  <h3>Produtos no Carrinho</h3>
-  <ul class="products-list">
-    <li *ngFor="let item of cartProducts">
-      <div class="product-card">
-        <div class="product-header">
-          <span class="product-name">{{ item.product.name }}</span>
-        </div>
-        <div class="product-description">
-          {{ item.product.description }}
-        </div>
-        <span class="description-tooltiptext">{{ item.product.description }}</span>
-        <div class="product-photo">
-          <img [src]="item.product.photo" alt="{{ item.product.name }}" />
-        </div>
-        <div class="product-controls">
-          <button class="circle" (click)="decrement(item.product.id)">-</button>
-          <span class="quantity">{{ item.quantity }}</span>
-          <button class="circle" (click)="increment(item.product.id)">+</button>
-        </div>
+<ul class="products-list">
+  <li *ngFor="let product of paginatedProducts">
+    <div class="product-card">
+      <div class="product-header">
+        <span class="product-name">{{ product.name }}</span>
       </div>
-    </li>
-  </ul>
-  <button (click)="showCart = false">Fechar</button>
-</div>
+      <div class="product-description">
+        {{ product.description }}
+      </div>
+      <span class="description-tooltiptext">{{ product.description }}</span>
+      <div class="product-photo">
+        <img [src]="product.photo" alt="{{ product.name }}" />
+      </div>
+      <div class="product-controls">
+        <button class="circle" (click)="decrement(product.id)">-</button>
+        <span class="quantity">{{ quantities[product.id] || 0 }}</span>
+        <button class="circle" (click)="increment(product.id)">+</button>
+      </div>
+    </div>
+  </li>
+</ul>
+
+<button (click)="prevPage()" [disabled]="page === 1">Anterior</button>
+<button (click)="nextPage()" [disabled]="page * pageSize >= filteredProducts.length">Próxima</button>
+<p>Página: {{ page }}</p>
+
+<router-outlet />
+
