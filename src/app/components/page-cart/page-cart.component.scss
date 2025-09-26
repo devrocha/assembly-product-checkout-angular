@@ -2,6 +2,8 @@
 
     display: flex;
     justify-content: center;
+    position: relative;
+    align-items: center;
 }
 
 .cart-title {
@@ -10,12 +12,16 @@
     padding: 0 2rem;
     margin-bottom: 1rem;
     gap: 1rem;
+
 }
 
 .return {
     text-decoration: none;
     color: #007bff;
     font-weight: bold;
+    position: absolute;
+    top: 19px;
+    right: 25px;
 }
 
 
