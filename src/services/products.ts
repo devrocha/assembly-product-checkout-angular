@@ -10,7 +10,7 @@ export interface IProductWithQuantity {
   photo: string
   quantity: number
 }
-interface IProduct {
+export interface IProduct {
   id: number
   name: string
   price: number
@@ -28,7 +28,10 @@ export class Products {
 
   private cartProducts = signal<IProductWithQuantity[]>([]);
 
-  protected productsWithQuantity = signal(this.products().map(product => ({ ...product, quantity: 0 })));
+  private text = signal('');
+
+  private productsWithQuantity = computed(() => this.products().map(product => ({ ...product, quantity: 0 })).filter(p =>
+    p.name.toLowerCase().includes(this.text()) || p.category.toLowerCase().includes(this.text())));
 
   getpaginatedProducts() {
     return this.paginatedProducts;
@@ -138,8 +141,7 @@ export class Products {
 
   public addFilter(filterText: string) {
 
-    this.productsWithQuantity.set(this.productsWithQuantity().filter(p => p.name.toLowerCase().includes(filterText)
-      || p.category.toLowerCase().includes(filterText)));
+    this.text.set(filterText);
   }
 
 }

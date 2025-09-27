@@ -15,7 +15,7 @@ export class CartComponent {
 
   private productsService = inject(Products);
 
-  protected filterText = '';
+  protected filterText = signal('');
 
   protected total = this.productsService.getTotalCartProducts();
 
@@ -40,11 +40,11 @@ export class CartComponent {
   }
 
   addFilter(value: string) {
-    this.filterText = value;
+    this.filterText.set(value);
 
-    const toLowerCase = this.filterText.toLowerCase();
+    const toLowerCase = this.filterText().toLowerCase();
 
-    this.productsService.addFilter(this.filterText);
+    this.productsService.addFilter(toLowerCase);
   }
 }
 
