@@ -1,6 +1,6 @@
 <div class="search-container">
-  <input type="text" [value]="filterText()" (input)="addFilter($event.target.value)" />
-  <a class="total-products" [routerLink]="['/pageCart']">Total de produtos: {{ totalCartItems() }}</a>
+  <input type="text" [value]="filterText" (input)="addFilter($event.target.value)" />
+  <a class="total-products" [routerLink]="['/pageCart']">Total de produtos: {{ total() }}</a>
 </div>
 <div class="cart-container">
   @for(product of paginatedProducts() ; track product.id)
@@ -12,9 +12,9 @@
       <img [src]="product.photo" alt="foto" />
     </div>
     <div class="quantity-container">
-      <button class="quantity-controls" (click)="decrementQuantity(product)">-</button>
+      <button class="quantity-controls" (click)="decrement(product)">-</button>
       <span>{{product.quantity}}</span>
-      <button class="quantity-controls" (click)="incrementQuantity(product)">+</button>
+      <button class="quantity-controls" (click)="increment(product)">+</button>
     </div>
   </div>
   }

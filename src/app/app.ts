@@ -9,11 +9,5 @@ import { Products } from '../services/products';
   styleUrl: './app.scss'
 })
 export class App {
-  productsService = inject(Products)
 
-  protected products = this.productsService.getProducts()
-
-  constructor(){
-    console.log(this.products)
-  }
 }

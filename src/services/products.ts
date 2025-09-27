@@ -1,7 +1,15 @@
-import { Injectable, signal } from '@angular/core';
-import productsJson from '../../products.json'
-import { IProductWithQuantity } from '../app/components/cart/cart.component';
+import { computed, Injectable, signal } from '@angular/core';
+import productsJson from '../../products.json';
 
+export interface IProductWithQuantity {
+  id: number
+  name: string
+  price: number
+  description: string
+  category: string
+  photo: string
+  quantity: number
+}
 interface IProduct {
   id: number
   name: string
@@ -15,40 +23,125 @@ interface IProduct {
   providedIn: 'root'
 })
 export class Products {
-  private products = signal<IProduct[]>(productsJson)
 
-  public CartProducts = signal<IProductWithQuantity[]>([]);
+  private products = signal<IProduct[]>(productsJson);
 
-  getProducts() {
-    return this.products()
+  private cartProducts = signal<IProductWithQuantity[]>([]);
+
+  protected productsWithQuantity = signal(this.products().map(product => ({ ...product, quantity: 0 })));
+
+  getpaginatedProducts() {
+    return this.paginatedProducts;
   }
 
   getCartProducts() {
-    return this.CartProducts;
+    return this.cartProducts;
   }
 
-  addToCart(product: IProductWithQuantity) {
-    const cart = this.CartProducts();
+  getTotalCartProducts() {
+    return this.totalCartProducts;
+  }
 
-    if (cart.find(p => p.id === product.id)) {
+  getTotalPages() {
+    return this.totalPages;
+  }
 
-      cart.forEach(p => {
+  getArrayOfPages() {
+    return this.arrayOfPages;
+  }
+
+  getcurrentPage() {
+    return this.currentPage;
+  }
+
+  private totalCartProducts = computed(() => {
+    let total = 0;
+    for (let product of this.cartProducts()) {
+      total += product.quantity;
+    }
+    return total;
+  });
+
+  private paginatedProducts = computed(() => {
+    const startIndex = (this.currentPage() - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    return this.productsWithQuantity().slice(startIndex, endIndex);
+  });
+
+  private itemsPerPage = 25;
+
+  private totalItems = computed(() => this.productsWithQuantity().length);
+
+  private totalPages = computed(() => (Math.ceil(this.totalItems() / this.itemsPerPage)));
+
+  private arrayOfPages = computed(() => {
+
+    let pages: number[] = [];
+
+    for (let i = 1; i <= this.totalPages(); i++) {
+      pages.push(i);
+    }
+    return pages;
+  });
+
+  private currentPage = signal(1);
+
+  public goToPage(page: number) {
+    if (page >= 1 && page <= this.totalPages()) {
+      this.currentPage.set(page);
+    }
+  }
+
+  public incrementQuantity(product: IProductWithQuantity) {
+
+    product.quantity++;
+
+    if (this.cartProducts().find(p => p.id === product.id)) {
+
+      this.cartProducts().forEach(p => {
         if (p.id === product.id) {
           p.quantity = product.quantity;
         }
 
       });
 
-      this.CartProducts.set([...cart]);
+      this.cartProducts.set([...this.cartProducts()]);
 
     } else {
-      this.CartProducts.set([...cart, product]);
+      this.cartProducts.set([...this.cartProducts(), product]);
+    }
+
+  }
+
+  public decrementQuantity(product: IProductWithQuantity) {
+    if (product.quantity > 0) {
+      product.quantity--;
+
+      if (this.cartProducts().find(p => p.id === product.id)) {
+
+        this.cartProducts().forEach(p => {
+          if (p.id === product.id) {
+            p.quantity = product.quantity;
+          }
+
+        });
+
+        this.cartProducts.set([...this.cartProducts()]);
+
+      }
+    }
+    else {
+      this.cartProducts.set([...this.cartProducts().filter(p => p.id !== product.id)]);
+
     }
   }
 
-  removeFromCart(productId: number) {
-    const cart = this.CartProducts();
-    const updatedCart = cart.filter(product => product.id !== productId);
-    this.CartProducts.update(() => updatedCart);
+  public addFilter(filterText: string) {
+
+    this.productsWithQuantity.set(this.productsWithQuantity().filter(p => p.name.toLowerCase().includes(filterText)
+      || p.category.toLowerCase().includes(filterText)));
   }
+
 }
+
+

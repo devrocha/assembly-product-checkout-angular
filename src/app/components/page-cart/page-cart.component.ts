@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { Products } from '../../../services/products';
-import { IProductWithQuantity } from '../cart/cart.component';
+import { IProductWithQuantity, Products } from '../../../services/products';
+
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -12,25 +12,17 @@ import { RouterLink } from '@angular/router';
 export class PageCartComponent {
 
 
-  private productService = inject(Products);
-  protected cartProducts = this.productService.getCartProducts();
+  private productsService = inject(Products);
 
-  protected incrementQuantity(product: IProductWithQuantity) {
+  protected cartProducts = this.productsService.getCartProducts();
 
-    product.quantity++;
-
-    this.productService.addToCart(product);
+  increment(product: IProductWithQuantity) {
+    this.productsService.incrementQuantity(product);
   }
 
-  protected decrementQuantity(product: IProductWithQuantity) {
-    if (product.quantity > 0) {
-      product.quantity--;
-    }
-
-    this.productService.addToCart(product);
-
-    if (product.quantity === 0) {
-      this.productService.removeFromCart(product.id);
-    }
+  decrement(product: IProductWithQuantity) {
+    this.productsService.decrementQuantity(product);
   }
+
+
 }

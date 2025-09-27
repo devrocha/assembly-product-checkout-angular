@@ -1,17 +1,9 @@
-import { Component, computed, inject, signal } from '@angular/core';
-import { Products } from '../../../services/products';
+import { Component, inject, signal } from '@angular/core';
+import { IProductWithQuantity, Products } from '../../../services/products';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
-export interface IProductWithQuantity {
-  id: number
-  name: string
-  price: number
-  description: string
-  category: string
-  photo: string
-  quantity: number
-}
+
 @Component({
   selector: 'app-cart',
   imports: [CommonModule, RouterLink],
@@ -20,81 +12,39 @@ export interface IProductWithQuantity {
 })
 export class CartComponent {
 
-  private productService = inject(Products);
 
-  protected products = this.productService.getProducts().map(product => ({ ...product, quantity: 0 }));
+  private productsService = inject(Products);
 
-  protected cartProducts = this.productService.getCartProducts();
+  protected filterText = '';
 
-  protected totalCartItems = computed(() => {
-    let total = 0;
-    for (let product of this.cartProducts()) {
-      total += product.quantity;
-    }
-    return total;
-  });
+  protected total = this.productsService.getTotalCartProducts();
 
-  protected filteredProducts = signal(this.products);
+  protected currentPage = this.productsService.getcurrentPage();
 
-  protected paginatedProducts = computed(() => {
-    const startIndex = (this.currentPage() - 1) * this.itemsPerPage;
-    const endIndex = startIndex + this.itemsPerPage;
-    return this.filteredProducts().slice(startIndex, endIndex);
-  });
+  protected arrayOfPages = this.productsService.getArrayOfPages();
 
-  private itemsPerPage = 25;
+  protected totalPages = this.productsService.getTotalPages();
 
-  private totalItems = computed(() => this.filteredProducts().length);
+  protected paginatedProducts = this.productsService.getpaginatedProducts();
 
-  protected totalPages = computed(() => (Math.ceil(this.totalItems() / this.itemsPerPage)));
-
-  protected filterText = signal('');
-
-  protected arrayOfPages = computed(() => {
-
-    let pages: number[] = [];
-
-    for (let i = 1; i <= this.totalPages(); i++) {
-      pages.push(i);
-    }
-    return pages;
-  });
-
-  protected currentPage = signal(1);
-
-  protected goToPage(page: number) {
-    if (page >= 1 && page <= this.totalPages()) {
-      this.currentPage.update(() => page);
-    }
+  goToPage(page: number) {
+    this.productsService.goToPage(page);
   }
 
-  protected incrementQuantity(product: IProductWithQuantity) {
-
-    product.quantity++;
-
-    this.productService.addToCart(product);
+  increment(product: IProductWithQuantity) {
+    this.productsService.incrementQuantity(product);
   }
 
-  protected decrementQuantity(product: IProductWithQuantity) {
-    if (product.quantity > 0) {
-      product.quantity--;
-    }
-
-    this.productService.addToCart(product);
-
-    if (product.quantity === 0) {
-      this.productService.removeFromCart(product.id);
-    }
+  decrement(product: IProductWithQuantity) {
+    this.productsService.decrementQuantity(product);
   }
 
-  protected addFilter(value: string) {
-    this.filterText.update(() => value);
+  addFilter(value: string) {
+    this.filterText = value;
 
-    const toLowerCase = this.filterText().toLowerCase();
+    const toLowerCase = this.filterText.toLowerCase();
 
-    return this.filteredProducts.update(() => this.products.filter(p => p.name.toLowerCase().includes(toLowerCase)
-      || p.category.toLowerCase().includes(toLowerCase)));
+    this.productsService.addFilter(this.filterText);
   }
-
 }
 
