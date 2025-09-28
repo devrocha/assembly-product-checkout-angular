@@ -1,6 +1,7 @@
 <div class="search-container">
   <input type="text" [value]="filterText()" (input)="addFilter($event.target.value)" />
-  <a class="total-products" [routerLink]="['/pageCart']">Total de produtos: {{ total() }}</a>
+  <a class="total-products" [routerLink]="['/pageCart']"><i class="fa-solid fa-cart-shopping"></i><span>{{ total()
+      }}</span></a>
 </div>
 <div class="cart-container">
   @for(product of paginatedProducts() ; track product.id)
