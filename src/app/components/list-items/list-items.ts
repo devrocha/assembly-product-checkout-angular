@@ -1,12 +1,13 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { Products } from '../../../services/products';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { CardItem } from '../card-item/card-item';
 
 @Component({
   selector: 'app-list-items',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, CardItem],
   templateUrl: './list-items.html',
   styleUrl: './list-items.scss'
 })
@@ -17,12 +18,8 @@ export class ListItems {
   protected products = this.productsService.getProducts(); // array
 
 
-
-
   constructor() {
-    console.log(this.products); // sem parênteses
-
-
+    console.log(this.products);
   }
 
   showCart = false;

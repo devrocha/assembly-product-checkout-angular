@@ -3,17 +3,13 @@
     <span class="cart-label">{{ totalQuantity }}</span>
     <span class="cart-icon" (click)="goToCart()">🛒</span>
   </div>
-  <input
-    type="text"
-    class="filter-input"
-    placeholder="Filtrar por nome ou categoria"
-    [(ngModel)]="filterText"
-    (ngModelChange)="page = 1"
-  />
+  <input type="text" class="filter-input" placeholder="Filtrar por nome ou categoria" [(ngModel)]="filterText"
+    (ngModelChange)="page = 1" />
 </div>
 
 <ul class="products-list">
-  <li *ngFor="let product of paginatedProducts">
+  @for(product of paginatedProducts; track product.id){
+  <li>
     <div class="product-card">
       <div class="product-header">
         <span class="product-name">{{ product.name }}</span>
@@ -32,6 +28,8 @@
       </div>
     </div>
   </li>
+  }
+  <!-- <card-item [inputs] (outputs) /> -->
 </ul>
 
 <button (click)="prevPage()" [disabled]="page === 1">Anterior</button>
