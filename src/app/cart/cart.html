@@ -1,0 +1,22 @@
+<h2>Produtos no Carrinho</h2>
+<ul class="product-list">
+  <li *ngFor="let produto of cartProducts"></li>
+    <div class="card">
+      <div class="card-header">
+        <h3>{{ produto.name}}</h3>
+        <p>{{ produto.description }}</p>
+      </div>
+      <div class="card-body">
+        <div class="photo">
+          <img [src]="produto.photo" alt="{{ produto.name }}" />
+        </div>
+      </div>
+      <div class="card-footer">
+        <span>Quantidade: {{ produto.quantity }}</span>
+      </div>
+    </div>
+
+</ul>
+
+
+  

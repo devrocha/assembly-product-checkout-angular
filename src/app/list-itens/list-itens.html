@@ -1,0 +1,47 @@
+<header class="main-header">
+  <h1> Carrinho: <span class="cart-badge">{{ totalQuantity() }}</span> </h1>
+<button routerLink="/carrinho">Ver Carrinho</button>
+</header>
+
+<ul>
+  <input
+    type="text"
+    placeholder="Inserir categoria ou nome do produto"
+    [value]="filterTerm()"
+    (input)="filterTerm.set($any($event.target).value); page.set(1)"
+  />
+
+<ul class="product-list">
+  @for (produto of pagedProducts(); track produto.id){
+    <li>
+      <div class="card">
+        <div class="card-header">
+          <h3>{{ produto.name }}</h3>
+          <p>{{ produto.description }}</p>
+        </div>
+        <div class="card-body">
+          <div class="photo">
+            <img [src]="produto.photo" alt="{{ produto.name }}" />
+          </div>
+        </div>
+       
+        <div class="card-footer">
+            <button (click)="removeFromCart(produto)">-</button>
+            <span>{{ produto['quantity'] }}</span>
+            <button (click)="addToCart(produto)">+</button>
+          </div>
+      </div>
+    </li>
+  }
+</ul>
+<ul>
+ 
+<button (click)="prevPage()" [disabled]="page() === 1">Anterior</button>
+<button
+  (click)="nextPage()"
+  [disabled]="page() * pageSize >= filteredProducts().length"
+>
+  Próxima
+</button>
+<span>Página {{ page() }}</span>
+</ul>
