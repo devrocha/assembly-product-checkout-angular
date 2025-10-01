@@ -9,8 +9,8 @@ import { IProductWithQuantity } from '../../../services/products';
 })
 export class CartItemComponent {
 
-  product = input<IProductWithQuantity>();
+  products = input<IProductWithQuantity[]>([]);
 
-  increment = output<void>();
-  decrement = output<void>();
+  increment = output<IProductWithQuantity>();
+  decrement = output<IProductWithQuantity>();
 }

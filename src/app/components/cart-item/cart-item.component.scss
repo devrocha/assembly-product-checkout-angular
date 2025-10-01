@@ -1,3 +1,11 @@
+.cart-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
 .cart-item {
     display: flex;
     flex-direction: column;

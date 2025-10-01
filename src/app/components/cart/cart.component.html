@@ -3,13 +3,8 @@
   <a class="total-products" [routerLink]="['/pageCart']"><i class="fa-solid fa-cart-shopping"></i><span>{{ total()
       }}</span></a>
 </div>
-<div class="cart-container">
-  @for(product of paginatedProducts() ; track product.id)
-  {
-  <app-cart-item [product]="product" (increment)="increment(product)" (decrement)="decrement(product)" />
-  }
-</div>
 
+<app-cart-item [products]="paginatedProducts()" (increment)="increment($event)" (decrement)="decrement($event)" />
 
 <div class="pagination">
   <button class="move-pages" [disabled]="currentPage() === 1" (click)="goToPage(currentPage()-1)">Anterior</button>

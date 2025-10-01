@@ -4,9 +4,4 @@
         <a class="return" [routerLink]="['/cart']">Continuar Comprando</a>
     </div>
 </div>
-<div class="cart-container">
-    @for(product of cartProducts() ; track product.id)
-    {
-    <app-cart-item [product]="product" (increment)="increment(product)" (decrement)="decrement(product)" />
-    }
-</div>
+<app-cart-item [products]="cartProducts()" (increment)="increment($event)" (decrement)="decrement($event)" />
