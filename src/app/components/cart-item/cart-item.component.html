@@ -1,0 +1,12 @@
+<div class="cart-item">
+    <div class="cart-item-informations">
+        <h2>{{ product()?.name }}</h2>
+        <p class="cart-item-description">{{ product()?.description }}</p>
+        <img [src]="product()?.photo" alt="foto" />
+    </div>
+    <div class="quantity-container">
+        <button class="quantity-controls" (click)="decrement.emit()">-</button>
+        <span>{{product()?.quantity}}</span>
+        <button class="quantity-controls" (click)="increment.emit()">+</button>
+    </div>
+</div>

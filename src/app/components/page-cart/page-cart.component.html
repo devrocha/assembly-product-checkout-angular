@@ -7,17 +7,6 @@
 <div class="cart-container">
     @for(product of cartProducts() ; track product.id)
     {
-    <div class="cart-item">
-        <div class="cart-item-informations">
-            <h2>{{ product.name }}</h2>
-            <p class="cart-item-description">{{ product.description }}</p>
-            <img [src]="product.photo" alt="foto" />
-        </div>
-        <div class="quantity-container">
-            <button class="quantity-controls" (click)="decrement(product)">-</button>
-            <span>{{product.quantity}}</span>
-            <button class="quantity-controls" (click)="increment(product)">+</button>
-        </div>
-    </div>
+    <app-cart-item [product]="product" (increment)="increment(product)" (decrement)="decrement(product)" />
     }
 </div>

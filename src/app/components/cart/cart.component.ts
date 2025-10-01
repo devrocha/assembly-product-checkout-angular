@@ -2,11 +2,12 @@ import { Component, inject, signal } from '@angular/core';
 import { IProductWithQuantity, Products } from '../../../services/products';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { CartItemComponent } from '../cart-item/cart-item.component';
 
 
 @Component({
   selector: 'app-cart',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, CartItemComponent],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss'
 })
