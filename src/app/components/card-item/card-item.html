@@ -1,4 +1,4 @@
-<!-- <ul class="products-list">
+<ul class="products-list">
   @for(item of products(); track item.product.id) {
   <li>
     <div class="product-card">
@@ -13,11 +13,11 @@
         <img [src]="item.product.photo" alt="{{ item.product.name }}" />
       </div>
       <div class="product-controls">
-        <button class="circle" (click)="outputEmit(item.product.id)">-</button>
+        <button class="circle" (click)="decrement.emit(item.product.id)">-</button>
         <span class="quantity">{{ item.quantity }}</span>
-        <button class="circle" (click)="outputEmit(item.product.id)">+</button>
+        <button class="circle" (click)="increment.emit(item.product.id)">+</button>
       </div>
     </div>
   </li>
   }
-</ul> -->
+</ul>

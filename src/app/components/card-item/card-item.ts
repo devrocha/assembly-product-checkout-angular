@@ -8,13 +8,8 @@ import { IProduct } from '../../../services/products';
   styleUrl: './card-item.scss'
 })
 export class CardItem {
-  products = input<IProduct[]>([])
+  products = input<{ product: IProduct, quantity: number }[]>([])
 
   increment = output<number>()
   decrement = output<number>()
-
-  outputEmit(id: number){
-    this.increment.emit(id)
-    this.decrement.emit(id)
-  }
 }

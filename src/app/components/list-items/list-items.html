@@ -7,30 +7,7 @@
     (ngModelChange)="page = 1" />
 </div>
 
-<ul class="products-list">
-  @for(product of paginatedProducts; track product.id){
-  <li>
-    <div class="product-card">
-      <div class="product-header">
-        <span class="product-name">{{ product.name }}</span>
-      </div>
-      <div class="product-description">
-        {{ product.description }}
-      </div>
-      <span class="description-tooltiptext">{{ product.description }}</span>
-      <div class="product-photo">
-        <img [src]="product.photo" alt="{{ product.name }}" />
-      </div>
-      <div class="product-controls">
-        <button class="circle" (click)="decrement(product.id)">-</button>
-        <span class="quantity">{{ quantities[product.id] || 0 }}</span>
-        <button class="circle" (click)="increment(product.id)">+</button>
-      </div>
-    </div>
-  </li>
-  }
-  <!-- <card-item [inputs] (outputs) /> -->
-</ul>
+<card-item [products]="paginatedProducts" (decrement)="decrement($event)" (increment)="increment($event)" />
 
 <button (click)="prevPage()" [disabled]="page === 1">Anterior</button>
 <button (click)="nextPage()" [disabled]="page * pageSize >= filteredProducts.length">Próxima</button>

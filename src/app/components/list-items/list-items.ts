@@ -18,9 +18,9 @@ export class ListItems {
   protected products = this.productsService.getProducts(); // array
 
 
-  constructor() {
-    console.log(this.products);
-  }
+  // constructor() {
+  //   console.log(this.products);
+  // }
 
   showCart = false;
   cartProducts: { product: any, quantity: number }[] = [];
@@ -36,13 +36,14 @@ export class ListItems {
     if (!filter) return this.products;
     return this.products.filter(
       p =>
-        p.name.toLowerCase().includes(filter) ||
-        p.category.toLowerCase().includes(filter)
+        p.product.name.toLowerCase().includes(filter) ||
+        p.product.category.toLowerCase().includes(filter)
     );
   }
 
   get paginatedProducts() {
     const start = (this.page - 1) * this.pageSize;
+
     return this.filteredProducts.slice(start, start + this.pageSize);
   }
 
@@ -60,6 +61,8 @@ export class ListItems {
 
   increment(productId: number) {
     this.productsService.increment(productId);
+    this.products = this.productsService.getProducts()
+
     if (this.showCart) {
       this.cartProducts = this.productsService.getCartProducts();
     }

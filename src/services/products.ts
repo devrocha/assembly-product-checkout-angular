@@ -19,21 +19,24 @@ export class Products {
   private cart = signal<{ [id: number]: number }>({});
 
   getCart() {
-  return this.cart();
-}
-
-  getProducts() {
-    return this.products(); // retorna o array!
+    return this.cart();
   }
 
-   getCartProducts() {
+  getProducts() {
     const cartObj = this.cart();
+
+    return this.products().map(item => ({ product: item, quantity: cartObj[item.id] || 0 })); // retorna o array!
+  }
+
+  getCartProducts() {
+    const cartObj = this.cart();
+
     return this.getProducts()
-      .filter(p => cartObj[p.id] > 0)
-      .map(p => ({
-        product: p,
-        quantity: cartObj[p.id]
-      }));
+      .filter(p => cartObj[p.product.id] > 0)
+      .map(product => ({
+        ...product,
+        quantity: cartObj[product.product.id]
+      }))
   }
 
   increment(productId: number) {

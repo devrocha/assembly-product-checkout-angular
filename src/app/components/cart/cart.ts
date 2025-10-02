@@ -2,11 +2,12 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Products } from '../../../services/products';
 import { Router } from '@angular/router';
+import { CardItem } from '../card-item/card-item';
 
 @Component({
   selector: 'app-cart-page',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, CardItem],
   templateUrl: './cart.html',
   styleUrls: ['./cart.scss', '../../../app/app.scss'] // reutiliza o estilo global!
 })
